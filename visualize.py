@@ -12,6 +12,10 @@ with open("run.text") as input:
 
   while line := input.readline():
     line = line.strip()
+
+    if len(line) == 0:
+      continue
+
     length_as_string, duration_karatsuba_as_string, duration_schonhage_strassen_as_string = line.split()
     length = int(length_as_string)
     duration_karatsuba = float(duration_karatsuba_as_string)
