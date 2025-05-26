@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 import matplotlib.pyplot as pyplot
+import sys
 
-length = 2048
+length = int(sys.argv[1])
 data_karatsuba = [None] * length
 data_schonhage_strassen = [None] * length
 
