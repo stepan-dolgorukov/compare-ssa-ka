@@ -23,7 +23,7 @@ durations = {}
 for program in programs:
   durations[program] = 0
 
-amount_runs = 1
+amount_runs = 100
 
 for position_program, program in enumerate(programs):
   for step in range(amount_runs):
