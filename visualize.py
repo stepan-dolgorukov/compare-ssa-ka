@@ -50,6 +50,7 @@ y_ss = [None] * len(x_ss)
 for length in x_ss:
   y_ss[length - 1] = durations["schonhage-strassen"][length]
 
+pyplot.title("Сравнение")
 pyplot.yscale("log")
 pyplot.plot(x_k, y_k, color="b", marker=",", linestyle=None, label="Алгоритм Карацубы")
 pyplot.plot(x_ss, y_ss, color="g", marker=",", linestyle=None, label="Алгоритм Шенхаге-Штрассена")
