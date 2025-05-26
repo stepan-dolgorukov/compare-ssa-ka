@@ -2,6 +2,7 @@
 
 import matplotlib.pyplot as pyplot
 import sys
+from numpy import arange
 
 durations = {
   "karatsuba": {},
@@ -52,6 +53,7 @@ for length in x_ss:
 pyplot.yscale("log")
 pyplot.plot(x_k, y_k, color="b", marker=",", linestyle=None, label="Алгоритм Карацубы")
 pyplot.plot(x_ss, y_ss, color="g", marker=",", linestyle=None, label="Алгоритм Шенхаге-Штрассена")
+pyplot.xticks(arange(0, max(x_ss), 32))
 pyplot.legend()
 pyplot.xlabel("Длина операндов, биты")
 pyplot.ylabel("Время вычисления произведения, наносекунды")
