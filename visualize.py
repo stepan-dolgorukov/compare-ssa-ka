@@ -12,9 +12,12 @@ with open("run.text") as input:
 
   while line := input.readline():
     line = line.strip()
-    length, stamp_karatsuba, stamp_schonhage_strassen = line.split()
-    data_karatsuba[int(length) - 1] = (int(length), float(stamp_karatsuba))
-    data_schonhage_strassen[int(length) - 1] = (int(length), float(stamp_schonhage_strassen))
+    length_as_string, duration_karatsuba_as_string, duration_schonhage_strassen_as_string = line.split()
+    length = int(length_as_string)
+    duration_karatsuba = float(duration_karatsuba_as_string)
+    duration_schonhage_strassen = float(duration_schonhage_strassen_as_string)
+    data_karatsuba[int(length) - 1] = (length, duration_karatsuba)
+    data_schonhage_strassen[int(length) - 1] = (length, duration_schonhage_strassen)
 
 x_k, y_k = zip(*data_karatsuba)
 x_ss, y_ss = zip(*data_schonhage_strassen)
