@@ -20,16 +20,23 @@ with open("run.text") as input:
     length = int(length_as_string)
     duration_karatsuba = float(duration_karatsuba_as_string)
     duration_schonhage_strassen = float(duration_schonhage_strassen_as_string)
-    data_karatsuba[int(length) - 1] = (length, duration_karatsuba)
-    data_schonhage_strassen[int(length) - 1] = (length, duration_schonhage_strassen)
 
-x_k, y_k = zip(*data_karatsuba)
-x_ss, y_ss = zip(*data_schonhage_strassen)
+    if length in durations["karatsuba"]:
+      exit(1)
+
+    if length in durations["schonhage-strassen"]:
+      exit(1)
+
+    durations["karatsuba"][length] = duration_karatsuba
+    durations["schonhage-strassen"][length] = duration_schonhage_strassen
+
+x_k, y_k = zip(*durations["karatsuba"])
+x_ss, y_ss = zip(*durations["schonhage-strassen"])
 
 pyplot.yscale("log")
 pyplot.plot(x_k, y_k, color="b", marker=",", linestyle=None, label="Алгоритм Карацубы")
 pyplot.plot(x_ss, y_ss, color="g", marker=",", linestyle=None, label="Алгоритм Шенхаге-Штрассена")
 pyplot.legend()
-pyplot.xlabel('Длина операндов, биты')
-pyplot.ylabel('Время вычисления произведения, наносекунды')
+pyplot.xlabel("Длина операндов, биты")
+pyplot.ylabel("Время вычисления произведения, наносекунды")
 pyplot.show()
